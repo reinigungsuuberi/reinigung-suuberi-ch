@@ -23,10 +23,6 @@ const Navbar = () => {
     setIsMenuOpen((prev) => !prev);
   }, []);
 
-  const handleCloseMenu = useCallback(() => {
-    setIsMenuOpen(false);
-  }, []);
-
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === "Escape") setIsMenuOpen(false);
