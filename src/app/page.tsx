@@ -62,6 +62,34 @@ const services: Service[] = [
   },
 ];
 
+type Review = {
+  name: string;
+  city: string;
+  rating: number; // 1-5
+  text: string;
+};
+
+const reviews: Review[] = [
+  {
+    name: "Anna M.",
+    city: "Basel",
+    rating: 5,
+    text: "Sehr zuverlässig und gründlich – unsere Büros waren selten so sauber.",
+  },
+  {
+    name: "Lukas M.",
+    city: "Bern",
+    rating: 5,
+    text: "Schnelle Terminvergabe und top Ergebnis bei der Endreinigung.",
+  },
+  {
+    name: "Sara M.",
+    city: "Zürich",
+    rating: 4,
+    text: "Freundliches Team, nachhaltige Produkte und faire Preise.",
+  },
+];
+
 const Home = () => {
   const formRef = useRef<HTMLFormElement | null>(null);
 
@@ -75,6 +103,15 @@ const Home = () => {
     () => ["Basel", "Biel", "Solothurn", "Bern", "Zürich"],
     []
   );
+
+  const averageRating = useMemo(() => {
+    if (reviews.length === 0) return 0;
+    return reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length;
+  }, []);
+
+  const roundedAverage = useMemo(() => {
+    return Math.round(averageRating * 10) / 10;
+  }, [averageRating]);
 
   return (
     <main className="font-sans">
@@ -237,33 +274,56 @@ const Home = () => {
           <h2 className="text-3xl sm:text-4xl font-bold text-center text-[var(--color-primary)]">
             Kundenbewertungen
           </h2>
-        	<div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                name: "Anna M.",
-                city: "Basel",
-                text: "Sehr zuverlässig und gründlich – unsere Büros waren selten so sauber.",
-              },
-              {
-                name: "Lukas M.",
-                city: "Bern",
-                text: "Schnelle Terminvergabe und top Ergebnis bei der Endreinigung.",
-              },
-              {
-                name: "Sara M.",
-                city: "Zürich",
-                text: "Freundliches Team, nachhaltige Produkte und faire Preise.",
-              },
-            ].map((r) => (
-              <blockquote
+          <div className="mt-3 flex items-center justify-center gap-3">
+            <div className="flex" aria-hidden>
+              {[0, 1, 2, 3, 4].map((i) => (
+                <svg
+                  key={i}
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="20"
+                  height="20"
+                  className={i + 1 <= Math.round(averageRating) ? "text-yellow-400" : "text-gray-300"}
+                  fill="currentColor"
+                >
+                  <path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.786 1.401 8.168L12 18.896l-7.335 3.868 1.401-8.168L.132 9.21l8.2-1.192z" />
+                </svg>
+              ))}
+            </div>
+            <span className="text-sm text-[var(--color-muted)]" aria-label={`${roundedAverage} von 5 Sternen`}>
+              {roundedAverage} von 5
+            </span>
+          </div>
+
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+            {reviews.map((r) => (
+              <article
                 key={r.name}
                 className="rounded-xl bg-white p-6 shadow-sm border border-black/5"
               >
-                <p className="text-[var(--foreground)]">“{r.text}”</p>
-                <footer className="mt-4 text-sm text-[var(--color-muted)]">
-                  {r.name} · {r.city}
-                </footer>
-              </blockquote>
+                <div className="flex items-center justify-between">
+                  <div className="font-medium text-[var(--foreground)]">
+                    {r.name} · {r.city}
+                  </div>
+                  <div className="flex" aria-label={`${r.rating} von 5 Sternen`}>
+                    {[0, 1, 2, 3, 4].map((i) => (
+                      <svg
+                        key={i}
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        width="18"
+                        height="18"
+                        className={i + 1 <= r.rating ? "text-yellow-400" : "text-gray-300"}
+                        fill="currentColor"
+                        aria-hidden
+                      >
+                        <path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.786 1.401 8.168L12 18.896l-7.335 3.868 1.401-8.168L.132 9.21l8.2-1.192z" />
+                      </svg>
+                    ))}
+                  </div>
+                </div>
+                <p className="mt-4 text-[var(--foreground)]">“{r.text}”</p>
+              </article>
             ))}
           </div>
         </div>
@@ -320,8 +380,34 @@ const Home = () => {
               onSubmit={(e) => {
                 e.preventDefault();
                 const form = e.currentTarget as HTMLFormElement;
-                form.reset();
-                alert("Vielen Dank! Wir melden uns in Kürze.");
+                const data = new FormData(form);
+                const name = String(data.get("name") || "");
+                const email = String(data.get("email") || "");
+                const phone = String(data.get("phone") || "");
+                const message = String(data.get("message") || "");
+                const service = String(data.get("service") || "");
+                const detailed = data.get("detailed") ? "Ja" : "Nein";
+
+                const subject = `Angebotsanfrage – Suuberi Reinigung`;
+                const bodyLines = [
+                  "Hallo Suuberi,",
+                  "",
+                  `Name: ${name}`,
+                  `E-Mail: ${email}`,
+                  `Telefon: ${phone}`,
+                  service ? `Dienstleistung: ${service}` : "Dienstleistung: ",
+                  `Detailliertes Angebot: ${detailed}`,
+                  "",
+                  "Nachricht:",
+                  message,
+                  "",
+                  "Vielen Dank und freundliche Grüsse",
+                  name || "",
+                ];
+                const mailto = `mailto:info@suuberi-reinigung.ch?subject=${encodeURIComponent(
+                  subject
+                )}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
+                window.location.href = mailto;
               }}
               className="rounded-xl bg-white p-6 shadow-sm border border-black/5"
               aria-label="Kontaktformular"
@@ -370,6 +456,26 @@ const Home = () => {
                   </div>
                 </div>
                 <div>
+                  <label htmlFor="service" className="block text-sm font-medium">
+                    Dienstleistung
+                  </label>
+                  <select
+                    id="service"
+                    name="service"
+                    className="mt-1 w-full rounded-md border border-black/10 bg-white px-3 py-2 outline-none focus:ring-2 focus:ring-[var(--color-secondary)]"
+                    defaultValue=""
+                  >
+                    <option value="" disabled>
+                      Bitte wählen
+                    </option>
+                    {services.map((s) => (
+                      <option key={s.title} value={s.title}>
+                        {s.title}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div>
                   <label htmlFor="message" className="block text-sm font-medium">
                     Nachricht
                   </label>
@@ -396,9 +502,9 @@ const Home = () => {
                 <button
                   type="submit"
                   className="mt-2 inline-flex justify-center items-center gap-2 rounded-md bg-[var(--color-primary)] px-5 py-3 text-white font-medium hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-accent)]"
-                  aria-label="Formular absenden"
+                  aria-label="Standard-E-Mail mit Anfrage öffnen"
                 >
-                  Absenden
+                  E-Mail mit Anfrage öffnen
                 </button>
               </div>
             </form>
