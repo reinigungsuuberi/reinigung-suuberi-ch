@@ -1,10 +1,15 @@
+import BrandLogo from "./BrandLogo";
+
 const Footer = () => {
     return (
     <footer className="border-t border-black/10 bg-white">
       <div className="mx-auto max-w-7xl px-4 py-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <p className="font-semibold text-[var(--foreground)]">Suuberi Reinigung</p>
+            <div className="flex items-center gap-3">
+              <BrandLogo variant="withText" width={140} height={60} />
+            </div>
+            <p className="mt-2 font-semibold text-[var(--foreground)]">Suuberi Reinigung</p>
             <p className="mt-2 text-sm text-[var(--color-muted)]">
               Reinigung Basel, Hauswartung Bern, Endreinigung Zürich, Bauendreinigung,
               Fenster- & Fassadenreinigung, Spezialreinigung, Gartenpflege.

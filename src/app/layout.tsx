@@ -45,6 +45,14 @@ export const metadata: Metadata = {
       "Professionelle Reinigung in Basel, Biel, Solothurn, Bern und Zürich. Endreinigung, Unterhalt, Industrie, Fenster & Fassaden.",
     siteName: "Suuberi Reinigung",
     locale: "de_CH",
+    images: [
+      {
+        url: "/img/logo-with-text-suuberi-with-border-no-bg.png",
+        width: 512,
+        height: 512,
+        alt: "Suuberi Logo",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -52,6 +60,12 @@ export const metadata: Metadata = {
       "Suuberi Reinigung – Mehr als sauber. Reinigung und Hauswartung in der Schweiz",
     description:
       "Professionelle Reinigung in Basel, Biel, Solothurn, Bern und Zürich.",
+    images: [
+      {
+        url: "/img/logo-with-text-suuberi-with-border-no-bg.png",
+        alt: "Suuberi Logo",
+      },
+    ],
   },
 };
 

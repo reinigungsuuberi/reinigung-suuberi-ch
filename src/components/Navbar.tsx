@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useState } from "react";
+import BrandLogo from "./BrandLogo";
 
 type NavItem = { label: string; href: string; targetId: string };
 
@@ -56,7 +57,7 @@ const Navbar = () => {
       <div className="mx-auto max-w-7xl px-4 h-16 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <Link href="/" className="flex items-center gap-2" aria-label="Zur Startseite">
-            <span className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-[var(--color-primary)] text-white font-bold">S</span>
+            <BrandLogo variant="icon" width={32} height={32} />
             <span className="text-lg font-semibold text-[var(--foreground)]">Suuberi</span>
           </Link>
         </div>
