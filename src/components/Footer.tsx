@@ -5,7 +5,7 @@ const Footer = () => {
     return (
     <footer className="border-t border-black/10 bg-white">
       <div className="mx-auto max-w-7xl px-4 py-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center gap-3">
               <BrandLogo variant="withText" width={140} height={60} />
@@ -81,6 +81,33 @@ const Footer = () => {
               <li>
                 <a className="hover:underline" href="/impressum">
                   Impressum
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <p className="font-semibold text-[var(--foreground)]">Dokumente</p>
+            <ul className="mt-2 text-sm text-[var(--color-muted)]">
+              <li>
+                <a 
+                  className="hover:underline" 
+                  href="https://docs.google.com/document/d/1ddAKrDcjyP0JOulMfwR1tRQ_Bo80bjVuCySe7XEw0U0/export?format=pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Garantiebestimmungen als PDF herunterladen"
+                >
+                  Garantiebestimmungen (PDF)
+                </a>
+              </li>
+              <li>
+                <a 
+                  className="hover:underline" 
+                  href="https://docs.google.com/document/d/1kIjCYaU6K4nbwyA8CSjah-NAu7fR6-I9dOT9OsqYt5g/export?format=pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Leistungsbeschreibung als PDF herunterladen"
+                >
+                  Leistungsbeschreibung (PDF)
                 </a>
               </li>
             </ul>
