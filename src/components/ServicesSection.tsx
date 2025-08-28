@@ -2,17 +2,12 @@
 
 import SectionHeading from "./SectionHeading";
 import ServiceCard from "./ServiceCard";
-
-export type Service = {
-  title: string;
-  description: string;
-  icon: string;
-  alt?: string;
-};
+import Link from "next/link";
+import { ServiceDetail } from "../data/services";
 
 type ServicesSectionProps = {
   id?: string;
-  services: Service[];
+  services: ServiceDetail[];
 };
 
 const ServicesSection = ({ id = "dienstleistungen", services }: ServicesSectionProps) => {
@@ -22,7 +17,14 @@ const ServicesSection = ({ id = "dienstleistungen", services }: ServicesSectionP
         <SectionHeading title="Dienstleistungen" subtitle="Alles aus einer Hand – zuverlässig, nachhaltig und fair." />
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((s) => (
-            <ServiceCard key={s.title} icon={s.icon} title={s.title} description={s.description} iconAlt={s.alt || s.title} />
+            <ServiceCard
+              key={s.slug}
+              icon={s.icon}
+              title={s.title}
+              description={s.shortDescription}
+              iconAlt={s.alt || s.title}
+              href={`/dienstleistungen/${s.slug}`}
+            />
           ))}
         </div>
       </div>

@@ -4,9 +4,10 @@ import { useRef } from "react";
 
 type ContactFormMailtoProps = {
   services: { title: string }[];
+  defaultServiceTitle?: string;
 };
 
-const ContactFormMailto = ({ services }: ContactFormMailtoProps) => {
+const ContactFormMailto = ({ services, defaultServiceTitle }: ContactFormMailtoProps) => {
   const formRef = useRef<HTMLFormElement | null>(null);
 
   return (
@@ -98,7 +99,11 @@ const ContactFormMailto = ({ services }: ContactFormMailtoProps) => {
             id="service"
             name="service"
             className="mt-1 w-full rounded-md border border-black/10 bg-white px-3 py-2 outline-none focus:ring-2 focus:ring-[var(--color-secondary)]"
-            defaultValue=""
+            defaultValue={
+              defaultServiceTitle && services.some((s) => s.title === defaultServiceTitle)
+                ? defaultServiceTitle
+                : ""
+            }
           >
             <option value="" disabled>
               Bitte wählen

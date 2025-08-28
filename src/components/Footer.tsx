@@ -1,4 +1,5 @@
 import BrandLogo from "./BrandLogo";
+import { RiPhoneLine, RiWhatsappLine, RiMailLine } from "react-icons/ri";
 
 const Footer = () => {
     return (
@@ -17,6 +18,34 @@ const Footer = () => {
           </div>
           <div>
             <p className="font-semibold text-[var(--foreground)]">Kontakt</p>
+            <div className="mt-3 flex items-center gap-2" aria-label="Schnellkontakt">
+              <a
+                href="tel:+41782346699"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-black/10 bg-white text-[var(--foreground)] shadow-sm hover:bg-black/5 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
+                aria-label="Anrufen"
+                tabIndex={0}
+              >
+                <RiPhoneLine className="h-5 w-5" aria-hidden="true" />
+              </a>
+              <a
+                href="https://wa.me/41782346699"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-black/10 bg-white text-[var(--foreground)] shadow-sm hover:bg-black/5 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
+                aria-label="WhatsApp Chat starten"
+                tabIndex={0}
+              >
+                <RiWhatsappLine className="h-5 w-5" aria-hidden="true" />
+              </a>
+              <a
+                href="mailto:info@suuberi-reinigung.ch"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-black/10 bg-white text-[var(--foreground)] shadow-sm hover:bg-black/5 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
+                aria-label="E-Mail schreiben"
+                tabIndex={0}
+              >
+                <RiMailLine className="h-5 w-5" aria-hidden="true" />
+              </a>
+            </div>
             <ul className="mt-2 text-sm text-[var(--color-muted)]">
               <li>
                 E-Mail: {" "}

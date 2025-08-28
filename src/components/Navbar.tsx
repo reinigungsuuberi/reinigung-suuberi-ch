@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import BrandLogo from "./BrandLogo";
+import { RiPhoneLine, RiWhatsappLine, RiMailLine } from "react-icons/ri";
 
 type NavItem = { label: string; href: string; targetId: string };
 
@@ -74,6 +75,34 @@ const Navbar = () => {
               {item.label}
             </Link>
           ))}
+          <div className="flex items-center gap-2">
+            <a
+              href="tel:+41782346699"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-black/10 bg-white text-[var(--foreground)] shadow-sm hover:bg-black/5 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
+              aria-label="Anrufen"
+              tabIndex={0}
+            >
+              <RiPhoneLine className="h-4 w-4" aria-hidden="true" />
+            </a>
+            <a
+              href="https://wa.me/41782346699"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-black/10 bg-white text-[var(--foreground)] shadow-sm hover:bg-black/5 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
+              aria-label="WhatsApp Chat starten"
+              tabIndex={0}
+            >
+              <RiWhatsappLine className="h-4 w-4" aria-hidden="true" />
+            </a>
+            <a
+              href="mailto:info@suuberi-reinigung.ch"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-black/10 bg-white text-[var(--foreground)] shadow-sm hover:bg-black/5 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
+              aria-label="E-Mail schreiben"
+              tabIndex={0}
+            >
+              <RiMailLine className="h-4 w-4" aria-hidden="true" />
+            </a>
+          </div>
           <Link
             href={ctaHref}
             onClick={handleSmartNavigate("kontakt", ctaHref)}
@@ -145,6 +174,34 @@ const Navbar = () => {
           >
             Angebot anfordern
           </Link>
+          <div className="mt-3 flex items-center gap-2">
+            <a
+              href="tel:+41782346699"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-black/10 bg-white text-[var(--foreground)] shadow-sm hover:bg-black/5 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
+              aria-label="Anrufen"
+              tabIndex={0}
+            >
+              <RiPhoneLine className="h-5 w-5" aria-hidden="true" />
+            </a>
+            <a
+              href="https://wa.me/41782346699"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-black/10 bg-white text-[var(--foreground)] shadow-sm hover:bg-black/5 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
+              aria-label="WhatsApp Chat starten"
+              tabIndex={0}
+            >
+              <RiWhatsappLine className="h-5 w-5" aria-hidden="true" />
+            </a>
+            <a
+              href="mailto:info@suuberi-reinigung.ch"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-black/10 bg-white text-[var(--foreground)] shadow-sm hover:bg-black/5 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
+              aria-label="E-Mail schreiben"
+              tabIndex={0}
+            >
+              <RiMailLine className="h-5 w-5" aria-hidden="true" />
+            </a>
+          </div>
         </nav>
       </div>
     </header>
