@@ -2,7 +2,7 @@
 
 import SectionHeading from "./SectionHeading";
 import ContactFormMailto from "./ContactFormMailto";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { RiPhoneLine, RiWhatsappLine, RiMailLine } from "react-icons/ri";
 
 type ContactSectionProps = {

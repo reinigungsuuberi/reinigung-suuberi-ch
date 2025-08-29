@@ -2,7 +2,6 @@
 
 import SectionHeading from "./SectionHeading";
 import ServiceCard from "./ServiceCard";
-import Link from "next/link";
 import { ServiceDetail } from "../data/services";
 
 type ServicesSectionProps = {
