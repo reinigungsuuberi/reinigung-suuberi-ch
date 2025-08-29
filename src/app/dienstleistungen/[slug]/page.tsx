@@ -38,6 +38,8 @@ const ServiceDetailPage = async ({ params }: PageProps) => {
         </ul>
       )}
 
+      {/* Price section commented out for end users - visible only to developers */}
+      {/*
       <section className="mt-10">
         <h2 className="text-xl font-semibold">Preise & Richtwerte</h2>
         <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -59,6 +61,7 @@ const ServiceDetailPage = async ({ params }: PageProps) => {
           ))}
         </div>
       </section>
+      */}
 
       <section className="mt-12">
         <h2 className="text-xl font-semibold">Wichtige Dokumente</h2>
