@@ -63,6 +63,31 @@ const ServiceDetailPage = async ({ params }: PageProps) => {
       </section>
       */}
 
+<section className="mt-12">
+        <div className="rounded-xl border border-black/5 bg-white p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div>
+            <h2 className="text-lg font-semibold">Interesse an {service.title}?</h2>
+            <p className="text-[var(--color-muted)]">Kontaktieren Sie uns – wir beraten Sie kostenlos und unverbindlich.</p>
+          </div>
+          <div className="flex gap-3">
+            <Link
+              href={`/?service=${encodeURIComponent(service.title)}#kontakt`}
+              className="inline-flex items-center rounded-md bg-[var(--color-primary)] px-4 py-2 text-sm font-medium text-white hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-accent)]"
+              aria-label={`${service.title} anfragen`}
+            >
+              Jetzt anfragen
+            </Link>
+            <Link
+              href="/dienstleistungen"
+              className="inline-flex items-center rounded-md border border-black/10 px-4 py-2 text-sm font-medium hover:bg-black/5"
+              aria-label="Zur Dienstleistungsübersicht"
+            >
+              Weitere Dienstleistungen
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <section className="mt-12">
         <h2 className="text-xl font-semibold">Wichtige Dokumente</h2>
         <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -104,30 +129,7 @@ const ServiceDetailPage = async ({ params }: PageProps) => {
         </div>
       </section>
 
-      <section className="mt-12">
-        <div className="rounded-xl border border-black/5 bg-white p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <div>
-            <h2 className="text-lg font-semibold">Interesse an {service.title}?</h2>
-            <p className="text-[var(--color-muted)]">Kontaktieren Sie uns – wir beraten Sie kostenlos und unverbindlich.</p>
-          </div>
-          <div className="flex gap-3">
-            <Link
-              href={`/?service=${encodeURIComponent(service.title)}#kontakt`}
-              className="inline-flex items-center rounded-md bg-[var(--color-primary)] px-4 py-2 text-sm font-medium text-white hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-accent)]"
-              aria-label={`${service.title} anfragen`}
-            >
-              Jetzt anfragen
-            </Link>
-            <Link
-              href="/dienstleistungen"
-              className="inline-flex items-center rounded-md border border-black/10 px-4 py-2 text-sm font-medium hover:bg-black/5"
-              aria-label="Zur Dienstleistungsübersicht"
-            >
-              Weitere Dienstleistungen
-            </Link>
-          </div>
-        </div>
-      </section>
+      
     </main>
   );
 };
