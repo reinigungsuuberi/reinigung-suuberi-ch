@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     locale: "de_CH",
     images: [
       {
-        url: "/img/logo-with-text-suuberi-with-border-no-bg.png",
+        url: "/img/suuberi-logo-schwarz.png",
         width: 512,
         height: 512,
         alt: "Suuberi Logo",
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
       "Professionelle Reinigung in Basel, Biel, Solothurn, Bern und Zürich.",
     images: [
       {
-        url: "/img/logo-with-text-suuberi-with-border-no-bg.png",
+        url: "/img/suuberi-logo-schwarz.png",
         alt: "Suuberi Logo",
       },
     ],

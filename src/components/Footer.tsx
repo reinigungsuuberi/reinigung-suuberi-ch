@@ -83,9 +83,24 @@ const Footer = () => {
                   Impressum
                 </a>
               </li>
+              <li className="mt-3 pt-2 border-t border-black/10">
+                <p className="text-xs text-[var(--color-muted)]">
+                  Handelsregister: Suberi inh Boudova
+                </p>
+                <p className="text-xs text-[var(--color-muted)] mt-1">
+                  Alternative Kontakt:{" "}
+                  <a
+                    href="tel:+41787098233"
+                    className="underline decoration-dotted underline-offset-2 hover:decoration-solid"
+                    aria-label="Alternative Telefonnummer 078 709 82 33 anrufen"
+                  >
+                    +41 78 709 82 33
+                  </a>
+                </p>
+              </li>
             </ul>
           </div>
-          <div>
+          {/* <div>
             <p className="font-semibold text-[var(--foreground)]">Dokumente</p>
             <ul className="mt-2 text-sm text-[var(--color-muted)]">
               <li>
@@ -111,7 +126,7 @@ const Footer = () => {
                 </a>
               </li>
             </ul>
-          </div>
+          </div> */}
         </div>
         <p className="mt-8 text-xs text-[var(--color-muted)]">
           © 2025 Suuberi Reinigung. Alle Rechte vorbehalten.

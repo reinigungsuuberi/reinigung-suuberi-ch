@@ -15,9 +15,9 @@ type BrandLogoProps = {
 };
 
 const variantToSrc: Record<BrandLogoVariant, string> = {
-  icon: "/img/logo-only-suuberi-no-bg.png",
-  withText: "/img/logo-with-text-suuberi-no-bg.png",
-  withBorder: "/img/logo-with-text-suuberi-with-border-no-bg.png",
+  icon: "/img/suuberi-logo-schwarz.png",
+  withText: "/img/suuberi-logo-schwarz.png",
+  withBorder: "/img/suuberi-logo-schwarz.png",
 };
 
 const defaultSize: Record<BrandLogoVariant, { width: number; height: number }> = {

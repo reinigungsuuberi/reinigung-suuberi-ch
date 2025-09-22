@@ -38,44 +38,20 @@ const ServiceDetailPage = async ({ params }: PageProps) => {
         </ul>
       )}
 
-      {/* Price section commented out for end users - visible only to developers */}
-      {/*
-      <section className="mt-10">
-        <h2 className="text-xl font-semibold">Preise & Richtwerte</h2>
-        <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
-          {service.priceSections.map((ps) => (
-            <article key={ps.title} className="rounded-lg border border-black/5 bg-white p-5">
-              <h3 className="text-lg font-semibold">{ps.title}</h3>
-              {ps.range && (
-                <p className="mt-2"><span className="font-medium">Spanne:</span> {ps.range.min} – {ps.range.max} {ps.range.currency || "CHF"}</p>
-              )}
-              {ps.items && (
-                <ul className="mt-2 list-disc pl-5">
-                  {ps.items.map((it) => (
-                    <li key={it.label}><span className="font-medium">{it.label}:</span> {it.priceText}</li>
-                  ))}
-                </ul>
-              )}
-              {ps.note && <p className="mt-2 text-[var(--color-muted)]">{ps.note}</p>}
-            </article>
-          ))}
-        </div>
-      </section>
-      */}
 
 <section className="mt-12">
         <div className="rounded-xl border border-black/5 bg-white p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
             <h2 className="text-lg font-semibold">Interesse an {service.title}?</h2>
-            <p className="text-[var(--color-muted)]">Kontaktieren Sie uns – wir beraten Sie kostenlos und unverbindlich.</p>
+            <p className="text-[var(--color-muted)]">Kontaktieren Sie uns – wir erstellen Ihnen gerne eine kostenlose Offerte.</p>
           </div>
           <div className="flex gap-3">
             <Link
               href={`/?service=${encodeURIComponent(service.title)}#kontakt`}
               className="inline-flex items-center rounded-md bg-[var(--color-primary)] px-4 py-2 text-sm font-medium text-white hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-accent)]"
-              aria-label={`${service.title} anfragen`}
+              aria-label={`Kostenlose Offerte für ${service.title} anfragen`}
             >
-              Jetzt anfragen
+              Kostenlose Offerte
             </Link>
             <Link
               href="/dienstleistungen"
@@ -89,41 +65,24 @@ const ServiceDetailPage = async ({ params }: PageProps) => {
       </section>
 
       <section className="mt-12">
-        <h2 className="text-xl font-semibold">Wichtige Dokumente</h2>
-        <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <h2 className="text-xl font-semibold">Garantie & Qualität</h2>
+        <p className="mt-3 text-[var(--color-muted)] max-w-3xl">
+          Wir stehen für Qualität und Zuverlässigkeit. Kontaktieren Sie uns für detaillierte Informationen zu unseren Garantiebestimmungen.
+        </p>
+        <div className="mt-6">
           <div className="rounded-lg border border-black/5 bg-white p-5">
             <h3 className="text-lg font-semibold">Garantiebestimmungen</h3>
             <p className="mt-2 text-sm text-[var(--color-muted)]">
-              Unsere Garantiebestimmungen für alle Reinigungsdienstleistungen.
+              Unsere Garantiebestimmungen für alle Reinigungsdienstleistungen. Wichtig für Kunden bei Endreinigungen und Bauendreinigungen.
             </p>
-                          <div className="mt-4 flex gap-3">
-                <a
-                  href="https://docs.google.com/document/d/1ddAKrDcjyP0JOulMfwR1tRQ_Bo80bjVuCySe7XEw0U0/export?format=pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center rounded-md bg-[var(--color-primary)] px-3 py-2 text-sm font-medium text-white hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-accent)]"
-                  aria-label="Garantiebestimmungen als PDF herunterladen"
-                >
-                  PDF herunterladen
-                </a>
-            </div>
-          </div>
-          
-          <div className="rounded-lg border border-black/5 bg-white p-5">
-            <h3 className="text-lg font-semibold">Leistungsbeschreibung</h3>
-            <p className="mt-2 text-sm text-[var(--color-muted)]">
-              Detaillierte Beschreibung unserer Dienstleistungen und Leistungsumfang.
-            </p>
-                          <div className="mt-4 flex gap-3">
-                <a
-                  href="https://docs.google.com/document/d/1kIjCYaU6K4nbwyA8CSjah-NAu7fR6-I9dOT9OsqYt5g/export?format=pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center rounded-md bg-[var(--color-primary)] px-3 py-2 text-sm font-medium text-white hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-accent)]"
-                  aria-label="Leistungsbeschreibung als PDF herunterladen"
-                >
-                  PDF herunterladen
-                </a>
+            <div className="mt-4">
+              <Link
+                href="/#kontakt"
+                className="inline-flex items-center rounded-md bg-[var(--color-primary)] px-3 py-2 text-sm font-medium text-white hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-accent)]"
+                aria-label="Kontakt für Garantiebestimmungen"
+              >
+                Kontakt aufnehmen
+              </Link>
             </div>
           </div>
         </div>

@@ -13,9 +13,8 @@ const AboutSection = () => {
             <p className="mt-4 text-[var(--foreground)]">
               Mit über 20 Jahren Erfahrung bietet Suuberi professionelle
               Reinigungs- und Hauswartungsdienste in Basel, Biel, Solothurn,
-              Bern und Zürich. Unser Team arbeitet schnell, zuverlässig und
-              diskret, mit ausschliesslich umweltfreundlichen
-              Reinigungsmitteln.
+              Bern und Zürich. Unser Team arbeitet schnell, zuverlässig, 
+              mit umweltfreundlichen Reinigungsmitteln.
             </p>
             <ul className="mt-6 grid grid-cols-2 gap-4" aria-label="Unsere Werte">
               {["Schnelligkeit", "Nachhaltigkeit", "Diskretion", "Flexibilität"].map(
@@ -38,7 +37,7 @@ const AboutSection = () => {
           </div>
           <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl shadow">
             <Image
-              src="https://images.unsplash.com/photo-1585421514738-01798e348b17?q=80&w=1600&auto=format&fit=crop"
+              src="/img/cleaning.jpg"
               alt="Sauberer, moderner Büroraum"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
