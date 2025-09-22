@@ -65,7 +65,7 @@ const Home = () => {
 
       <WhyUsSection />
 
-      <ReviewsSection reviews={reviews} />
+      {/* <ReviewsSection reviews={reviews} /> */}
 
       <StepsSection />
 
