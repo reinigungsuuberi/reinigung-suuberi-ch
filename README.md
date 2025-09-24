@@ -2,8 +2,6 @@
 
 ## Design Guidelines
 
-TEST
-
 ### Design System Overview
 This project follows a modern, clean design approach focused on accessibility and user experience. The design system is built around a professional cleaning service brand with a Swiss aesthetic.
 
