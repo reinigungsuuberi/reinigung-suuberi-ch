@@ -11,7 +11,7 @@ const AboutSection = () => {
           <div>
             <SectionHeading title="Über uns" align="left" />
             <p className="mt-4 text-[var(--foreground)]">
-              Mit über 20 Jahren Erfahrung bietet Suuberi professionelle
+              Suuberi bietet professionelle
               Reinigungs- und Hauswartungsdienste in Basel, Biel, Solothurn,
               Bern und Zürich. Unser Team arbeitet schnell, zuverlässig, 
               mit umweltfreundlichen Reinigungsmitteln.
