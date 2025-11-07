@@ -29,7 +29,7 @@ const Hero = ({ onCtaClick }: HeroProps) => {
             Mehr als sauber – <span className="text-[var(--color-accent)]">Suuberi</span>.
           </h1>
           <p className="mt-4 text-lg md:text-xl text-white/90">
-            Sauber. Schnell. Nachhaltig. Seit über 20 Jahren.
+            Sauber. Schnell. Nachhaltig.
           </p>
           <div className="mt-8 flex items-center justify-center gap-4">
             <button
