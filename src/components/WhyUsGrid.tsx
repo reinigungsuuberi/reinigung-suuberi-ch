@@ -3,7 +3,6 @@
 type WhyItem = { label: string; icon: string };
 
 const items: WhyItem[] = [
-  { label: "20+ Jahre Erfahrung", icon: "🏆" },
   { label: "Umweltfreundliche Produkte", icon: "🌿" },
   { label: "Schnelle Einsatzbereitschaft", icon: "⏱️" },
   { label: "Flexible Verträge", icon: "📄" },
