@@ -12,7 +12,6 @@ const navItems: NavItem[] = [
   { label: "Über uns", href: "/#ueber-uns", targetId: "ueber-uns" },
   { label: "Dienstleistungen", href: "/#dienstleistungen", targetId: "dienstleistungen" },
   { label: "Warum Suuberi?", href: "/#warum", targetId: "warum" },
-  { label: "Bewertungen", href: "/#bewertungen", targetId: "bewertungen" },
   { label: "Ablauf", href: "/#ablauf", targetId: "ablauf" },
 ];
 
