@@ -14,7 +14,7 @@ const Hero = ({ onCtaClick }: HeroProps) => {
     >
       <div className="absolute inset-0 -z-10">
         <Image
-          src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=1920&auto=format&fit=crop"
+          src="/img/cleaning.jpg"
           alt="Reinigungsteam im Einsatz"
           fill
           priority

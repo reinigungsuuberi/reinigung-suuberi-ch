@@ -37,7 +37,7 @@ const AboutSection = () => {
           </div>
           <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl shadow">
             <Image
-              src="/img/cleaning.jpg"
+              src="/img/cleaning2.jpg"
               alt="Sauberer, moderner Büroraum"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
