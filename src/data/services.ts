@@ -21,6 +21,7 @@ export type ServiceDetail = {
   title: string;
   shortDescription: string;
   icon: string;
+  iconType?: "broom" | "factory" | "home" | "construction" | "window" | "sparkle" | "garden";
   alt: string;
   intro: string;
   highlights: string[];
@@ -34,6 +35,7 @@ export const servicesData: ServiceDetail[] = [
     shortDescription:
       "Regelmässige Reinigung für Büros, Praxen und Liegenschaften – zuverlässig und planbar.",
     icon: "🧹",
+    iconType: "broom",
     alt: "Icon Unterhaltsreinigung",
     intro:
       "Sauberkeit im Alltag: Wir reinigen regelmässig – wöchentlich, zweiwöchentlich oder nach Vereinbarung. Ideal für Privat- und Geschäftskunden.",
@@ -57,6 +59,7 @@ export const servicesData: ServiceDetail[] = [
     shortDescription:
       "Professionelle Reinigung für Produktionsstätten, Lager und Werkhallen.",
     icon: "🏭",
+    iconType: "factory",
     alt: "Icon Industriereinigung",
     intro:
       "Spezialreinigung für industrielle Umgebungen – sicher, effizient und mit geeigneten Verfahren für Maschinen, Böden und Flächen.",
@@ -79,6 +82,7 @@ export const servicesData: ServiceDetail[] = [
     shortDescription:
       "Gründliche Wohnungs- und Hausendreinigung inkl. Abnahmegarantie auf Wunsch.",
     icon: "📦",
+    iconType: "home",
     alt: "Icon Endreinigung",
     intro:
       "Wir übergeben besenrein – inkl. Küche, Bad, Fenster und auf Wunsch Abnahmegarantie.",
@@ -114,6 +118,7 @@ export const servicesData: ServiceDetail[] = [
     shortDescription:
       "Baustaub adé: Reinigung nach Bau- und Renovationsarbeiten für den perfekten Erstbezug.",
     icon: "🚧",
+    iconType: "construction",
     alt: "Icon Bauendreinigung",
     intro:
       "Von Grobreinigung bis Feinreinigung – wir bereiten Neu- und Umbauten bezugsfertig vor.",
@@ -136,6 +141,7 @@ export const servicesData: ServiceDetail[] = [
     shortDescription:
       "Streifenfreie Fenster, gepflegte Fassaden und saubere Storen – innen und aussen.",
     icon: "🪟",
+    iconType: "window",
     alt: "Icon Fenster- und Fassadenreinigung",
     intro:
       "Glasklare Sicht: Wir reinigen Fenster, Rahmen, Storen und auf Wunsch auch Fassaden.",
@@ -162,6 +168,7 @@ export const servicesData: ServiceDetail[] = [
     shortDescription:
       "Von Teppichen über Polster bis hin zu Tiefgaragen – wir kümmern uns um Spezialfälle.",
     icon: "✨",
+    iconType: "sparkle",
     alt: "Icon Spezialreinigung",
     intro:
       "Für besondere Anforderungen: Teppich-, Polster-, Stein- und Tiefgaragenreinigung sowie weitere Spezialfälle.",
@@ -183,6 +190,7 @@ export const servicesData: ServiceDetail[] = [
     shortDescription:
       "Rasen, Hecken, Wege, Winterdienst und kleine Reparaturen – alles aus einer Hand.",
     icon: "🌿",
+    iconType: "garden",
     alt: "Icon Gartenpflege",
     intro:
       "Aussenanlagen gepflegt: Rasenmähen, Heckenschnitt, Laub, Wegepflege und kleine Hauswartungen.",

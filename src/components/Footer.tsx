@@ -1,136 +1,138 @@
-import BrandLogo from "./BrandLogo";
-import { RiPhoneLine, RiWhatsappLine, RiMailLine } from "react-icons/ri";
+"use client";
+
+import Image from "next/image";
+import { RiPhoneLine, RiWhatsappLine, RiMailLine, RiMapPinLine, RiArrowRightLine } from "react-icons/ri";
+import Link from "next/link";
+import { useLocale } from "@/lib/LocaleProvider";
 
 const Footer = () => {
+    const { locale, t } = useLocale();
+    const baseUrl = locale === "fr" ? "/fr" : "";
     return (
-    <footer className="border-t border-black/10 bg-white">
-      <div className="mx-auto max-w-7xl px-4 py-10">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div>
-            <div className="flex items-center gap-3">
-              <BrandLogo variant="withText" width={140} height={60} />
-            </div>
-            <p className="mt-2 font-semibold text-[var(--foreground)]">Suuberi Reinigung</p>
-            <p className="mt-2 text-sm text-[var(--color-muted)]">
-              Reinigung Basel, Hauswartung Bern, Endreinigung Zürich, Bauendreinigung,
-              Fenster- & Fassadenreinigung, Spezialreinigung, Gartenpflege.
-            </p>
-          </div>
-          <div>
-            <p className="font-semibold text-[var(--foreground)]">Kontakt</p>
-            <div className="mt-3 flex items-center gap-2" aria-label="Schnellkontakt">
+    <footer className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 left-20 w-80 h-80 bg-gradient-to-br from-cyan-500/10 to-teal-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-10">
+        {/* Top Section - Logo and tagline */}
+        <div className="text-center mb-8">
+          <Link href="/" className="inline-block mb-4">
+            <Image
+              src="/img/new.png"
+              alt="Suuberi Logo"
+              width={200}
+              height={200}
+              className="h-28 w-auto brightness-0 invert mx-auto"
+            />
+          </Link>
+          <p className="text-2xl sm:text-3xl font-bold text-white mb-4">
+            {locale === "fr" ? "Fiable. Durable. Équitable." : "Zuverlässig. Nachhaltig. Fair."}
+          </p>
+          <p className="text-gray-400 max-w-md mx-auto">
+            {t.footer.description}
+          </p>
+        </div>
+
+        {/* Quick Links Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          {/* Contact */}
+          <div className="text-center md:text-left">
+            <h3 className="text-white font-semibold text-lg mb-6">{t.footer.contact}</h3>
+            <div className="flex justify-center md:justify-start gap-4 mb-6">
               <a
                 href="tel:+41782346699"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-black/10 bg-white text-[var(--foreground)] shadow-sm hover:bg-black/5 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
-                aria-label="Anrufen"
-                tabIndex={0}
+                className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white hover:text-gray-900 transition-all duration-300"
+                aria-label={t.footer.callAriaLabel}
               >
-                <RiPhoneLine className="h-5 w-5" aria-hidden="true" />
+                <RiPhoneLine className="h-5 w-5" />
               </a>
               <a
                 href="https://wa.me/41782346699"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-black/10 bg-white text-[var(--foreground)] shadow-sm hover:bg-black/5 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
-                aria-label="WhatsApp Chat starten"
-                tabIndex={0}
+                className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white hover:text-gray-900 transition-all duration-300"
+                aria-label={t.footer.whatsappAriaLabel}
               >
-                <RiWhatsappLine className="h-5 w-5" aria-hidden="true" />
+                <RiWhatsappLine className="h-5 w-5" />
               </a>
               <a
                 href="mailto:info@suuberi-reinigung.ch"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-black/10 bg-white text-[var(--foreground)] shadow-sm hover:bg-black/5 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
-                aria-label="E-Mail schreiben"
-                tabIndex={0}
+                className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white hover:text-gray-900 transition-all duration-300"
+                aria-label={t.footer.emailAriaLabel}
               >
-                <RiMailLine className="h-5 w-5" aria-hidden="true" />
+                <RiMailLine className="h-5 w-5" />
               </a>
             </div>
-            <ul className="mt-2 text-sm text-[var(--color-muted)]">
+            <ul className="space-y-2 text-gray-400 text-sm">
               <li>
-                E-Mail: {" "}
-                <a
-                  href="mailto:info@suuberi-reinigung.ch"
-                  className="underline decoration-dotted underline-offset-2 hover:decoration-solid"
-                  aria-label="E-Mail an info@suuberi-reinigung.ch senden"
-                >
+                <a href="mailto:info@suuberi-reinigung.ch" className="hover:text-white transition-colors">
                   info@suuberi-reinigung.ch
                 </a>
               </li>
               <li>
-                Telefon: {" "}
-                <a
-                  href="tel:+41782346699"
-                  className="underline decoration-dotted underline-offset-2 hover:decoration-solid"
-                  aria-label="Telefonnummer +41 78 234 66 99 anrufen"
-                >
+                <a href="tel:+41782346699" className="hover:text-white transition-colors">
                   +41 78 234 66 99
                 </a>
               </li>
-              <li>Regionen: Basel · Biel · Solothurn · Bern · Zürich</li>
             </ul>
           </div>
-          <div>
-            <p className="font-semibold text-[var(--foreground)]">Rechtliches</p>
-            <ul className="mt-2 text-sm text-[var(--color-muted)]">
+
+          {/* Regions */}
+          <div className="text-center">
+            <h3 className="text-white font-semibold text-lg mb-6">
+              {locale === "fr" ? "Régions" : "Regionen"}
+            </h3>
+            <div className="flex flex-wrap justify-center gap-3">
+              {["Biel", "Bern", "Jura"].map((region) => (
+                <span 
+                  key={region}
+                  className="px-4 py-2 rounded-full bg-white/10 text-gray-300 text-sm"
+                >
+                  <RiMapPinLine className="inline-block mr-1 h-4 w-4" />
+                  {region}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Legal */}
+          <div className="text-center md:text-right">
+            <h3 className="text-white font-semibold text-lg mb-6">{t.footer.legal}</h3>
+            <ul className="space-y-3">
               <li>
-                <a className="hover:underline" href="/datenschutz">
-                  Datenschutz
-                </a>
+                <Link 
+                  href={`${baseUrl}/datenschutz`}
+                  className="text-gray-400 hover:text-white transition-colors inline-flex items-center gap-2"
+                >
+                  {t.footer.privacy}
+                  <RiArrowRightLine className="h-4 w-4" />
+                </Link>
               </li>
               <li>
-                <a className="hover:underline" href="/impressum">
-                  Impressum
-                </a>
-              </li>
-              <li className="mt-3 pt-2 border-t border-black/10">
-                <p className="text-xs text-[var(--color-muted)]">
-                  Handelsregister: Suberi inh Boudova
-                </p>
-                <p className="text-xs text-[var(--color-muted)] mt-1">
-                  Alternative Kontakt:{" "}
-                  <a
-                    href="tel:+41787098233"
-                    className="underline decoration-dotted underline-offset-2 hover:decoration-solid"
-                    aria-label="Alternative Telefonnummer 078 709 82 33 anrufen"
-                  >
-                    +41 78 709 82 33
-                  </a>
-                </p>
+                <Link 
+                  href={`${baseUrl}/impressum`}
+                  className="text-gray-400 hover:text-white transition-colors inline-flex items-center gap-2"
+                >
+                  {t.footer.imprint}
+                  <RiArrowRightLine className="h-4 w-4" />
+                </Link>
               </li>
             </ul>
           </div>
-          {/* <div>
-            <p className="font-semibold text-[var(--foreground)]">Dokumente</p>
-            <ul className="mt-2 text-sm text-[var(--color-muted)]">
-              <li>
-                <a 
-                  className="hover:underline" 
-                  href="https://docs.google.com/document/d/1ddAKrDcjyP0JOulMfwR1tRQ_Bo80bjVuCySe7XEw0U0/export?format=pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Garantiebestimmungen als PDF herunterladen"
-                >
-                  Garantiebestimmungen (PDF)
-                </a>
-              </li>
-              <li>
-                <a 
-                  className="hover:underline" 
-                  href="https://docs.google.com/document/d/1kIjCYaU6K4nbwyA8CSjah-NAu7fR6-I9dOT9OsqYt5g/export?format=pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Leistungsbeschreibung als PDF herunterladen"
-                >
-                  Leistungsbeschreibung (PDF)
-                </a>
-              </li>
-            </ul>
-          </div> */}
         </div>
-        <p className="mt-8 text-xs text-[var(--color-muted)]">
-          © 2025 Suuberi Reinigung. Alle Rechte vorbehalten.
-        </p>
+
+        {/* Bottom Bar */}
+        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p className="text-sm text-gray-500">
+            © {new Date().getFullYear()} Suuberi Reinigung. {locale === "fr" ? "Tous droits réservés." : "Alle Rechte vorbehalten."}
+          </p>
+          <p className="text-xs text-gray-600">
+            {t.footer.tradingInformation}
+          </p>
+        </div>
       </div>
     </footer>
     );

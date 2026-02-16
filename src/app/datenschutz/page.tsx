@@ -1,7 +1,9 @@
-export const metadata = {
-  title: "Datenschutz",
-  description:
-    "Datenschutzerklärung der Suuberi Reinigung – Informationen zum Umgang mit personenbezogenen Daten.",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Datenschutz | Suuberi Reinigung – Datenschutzerklärung",
+  description: "Datenschutzerklärung von Suuberi Reinigung. Erfahren Sie, wie wir Ihre persönlichen Daten schützen und verarbeiten.",
+  robots: { index: false, follow: true },
 };
 
 const DatenschutzPage = () => {

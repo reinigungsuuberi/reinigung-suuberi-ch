@@ -1,83 +1,79 @@
-"use client";
-
-import SectionHeading from "./SectionHeading";
+import { forwardRef } from "react";
 import ContactFormMailto from "./ContactFormMailto";
-import { useEffect, useState } from "react";
 import { RiPhoneLine, RiWhatsappLine, RiMailLine } from "react-icons/ri";
+import { useLocale } from "@/lib/LocaleProvider";
+import { useScrollReveal } from "@/hooks/useScrollEffects";
+import type { ServiceDetail } from "@/data/services";
 
 type ContactSectionProps = {
   locations: string[];
-  services: { title: string }[];
+  services: ServiceDetail[];
+  formRef?: React.RefObject<HTMLDivElement | null>;
 };
 
-const ContactSection = ({ locations, services }: ContactSectionProps) => {
-  const [defaultServiceTitle, setDefaultServiceTitle] = useState<string>("");
-
-  useEffect(() => {
-    try {
-      const params = new URLSearchParams(window.location.search);
-      const fromQuery = params.get("service") || "";
-      if (fromQuery) {
-        setDefaultServiceTitle(fromQuery);
-        return;
-      }
-      const hash = window.location.hash || ""; // e.g. #kontakt
-      if (hash.includes("service=")) {
-        const after = hash.split("?")[1] || "";
-        const sp = new URLSearchParams(after);
-        const fromHash = sp.get("service") || "";
-        if (fromHash) setDefaultServiceTitle(fromHash);
-      }
-    } catch {}
-  }, []);
+const ContactSection = forwardRef<HTMLDivElement, ContactSectionProps>(
+  ({ locations, services, formRef }, ref) => {
+    const { t } = useLocale();
+    const contentRef = useScrollReveal();
 
   return (
-    <section id="kontakt" className="py-16 sm:py-20 bg-[var(--color-surface)]">
-      <div className="mx-auto max-w-7xl px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-          <div>
-            <SectionHeading title="Kontaktformular" align="left" />
-            <p className="mt-3 text-[var(--foreground)]">
-              Wir sind in {locations.join(", ")} für Sie im Einsatz.
+    <section id="kontakt" className="relative min-h-screen py-32 sm:py-40 overflow-hidden snap-section flex items-center" ref={formRef}>
+      {/* Liquid glass background elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-cyan-100/30 to-blue-100/30 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-br from-teal-100/25 to-green-100/25 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      </div>
+
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div ref={contentRef} className="grid grid-cols-1 lg:grid-cols-2 gap-24">
+          <div className="animate-in">
+            <h2 className="text-6xl sm:text-7xl font-bold bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent tracking-tighter mb-10">
+              {t.contact.title}
+            </h2>
+            <p className="text-xl text-gray-600 leading-relaxed mb-6">
+              {t.contact.intro.replace("{locations}", locations.join(", "))}
             </p>
-            <p className="mt-2 text-[var(--color-muted)]">
-              Füllen Sie das Formular aus – wir melden uns zeitnah mit einem
-              unverbindlichen Angebot.
+            <p className="text-xl text-gray-600 leading-relaxed mb-12">
+              {t.contact.description}
             </p>
-            <div className="mt-4 flex items-center gap-2" aria-label="Schnellkontakt">
+            <div className="flex items-center gap-6" aria-label={t.contact.quickContact}>
               <a
                 href="tel:+41782346699"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-black/10 bg-white text-[var(--foreground)] shadow-sm hover:bg-black/5 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
-                aria-label="Anrufen"
+                className="group relative inline-flex h-16 w-16 items-center justify-center rounded-2xl backdrop-blur-xl bg-white/60 border border-white/20 text-gray-900 hover:bg-white/70 transition-all shadow-xl hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-4 hover:-translate-y-1"
+                aria-label={t.contact.callAriaLabel}
                 tabIndex={0}
               >
-                <RiPhoneLine className="h-5 w-5" aria-hidden="true" />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <RiPhoneLine className="h-7 w-7 relative z-10" aria-hidden="true" />
               </a>
               <a
                 href="https://wa.me/41782346699"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-black/10 bg-white text-[var(--foreground)] shadow-sm hover:bg-black/5 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
-                aria-label="WhatsApp Chat starten"
+                className="group relative inline-flex h-16 w-16 items-center justify-center rounded-2xl backdrop-blur-xl bg-white/60 border border-white/20 text-gray-900 hover:bg-white/70 transition-all shadow-xl hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-4 hover:-translate-y-1"
+                aria-label={t.contact.whatsappAriaLabel}
                 tabIndex={0}
               >
-                <RiWhatsappLine className="h-5 w-5" aria-hidden="true" />
+                <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 to-emerald-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <RiWhatsappLine className="h-7 w-7 relative z-10" aria-hidden="true" />
               </a>
               <a
                 href="mailto:info@suuberi-reinigung.ch"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-black/10 bg-white text-[var(--foreground)] shadow-sm hover:bg-black/5 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
-                aria-label="E-Mail schreiben"
-                tabIndex={0}
+                className="group relative inline-flex h-16 w-16 items-center justify-center rounded-2xl backdrop-blur-xl bg-white/60 border border-white/20 text-gray-900 hover:bg-white/70 transition-all shadow-xl hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-4 hover:-translate-y-1"
+                aria-label={t.contact.emailAriaLabel}
               >
-                <RiMailLine className="h-5 w-5" aria-hidden="true" />
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <RiMailLine className="h-7 w-7 relative z-10" aria-hidden="true" />
               </a>
             </div>
           </div>
-          <ContactFormMailto services={services} defaultServiceTitle={defaultServiceTitle} />
+          <ContactFormMailto services={services.map((s) => ({ title: s.title }))} />
         </div>
       </div>
     </section>
   );
-};
+});
+
+ContactSection.displayName = "ContactSection";
 
 export default ContactSection;

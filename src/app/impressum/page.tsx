@@ -1,7 +1,9 @@
-export const metadata = {
-  title: "Impressum",
-  description:
-    "Impressum der Suuberi Reinigung – Anbieterkennzeichnung und Kontaktangaben.",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Impressum | Suuberi Reinigung – Anbieterkennzeichnung",
+  description: "Impressum und Kontaktdaten von Suuberi Reinigung. Handelsregister, Ansprechpartner und rechtliche Informationen.",
+  robots: { index: false, follow: true },
 };
 
 const ImpressumPage = () => {

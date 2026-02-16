@@ -1,13 +1,14 @@
 "use client";
 
 import { useRef } from "react";
+import { useLocale } from "@/lib/LocaleProvider";
 
 type ContactFormMailtoProps = {
   services: { title: string }[];
-  defaultServiceTitle?: string;
 };
 
-const ContactFormMailto = ({ services, defaultServiceTitle }: ContactFormMailtoProps) => {
+const ContactFormMailto = ({ services }: ContactFormMailtoProps) => {
+  const { t } = useLocale();
   const formRef = useRef<HTMLFormElement | null>(null);
 
   return (
@@ -22,22 +23,22 @@ const ContactFormMailto = ({ services, defaultServiceTitle }: ContactFormMailtoP
         const phone = String(data.get("phone") || "");
         const message = String(data.get("message") || "");
         const service = String(data.get("service") || "");
-        const detailed = data.get("detailed") ? "Ja" : "Nein";
+        const detailed = data.get("detailed") ? t.form.yes : t.form.no;
 
-        const subject = `Angebotsanfrage – Suuberi Reinigung`;
+        const subject = t.form.subject;
         const bodyLines = [
-          "Hallo Suuberi,",
+          t.form.greeting,
           "",
-          `Name: ${name}`,
-          `E-Mail: ${email}`,
-          `Telefon: ${phone}`,
-          service ? `Dienstleistung: ${service}` : "Dienstleistung: ",
-          `Detailliertes Angebot: ${detailed}`,
+          `${t.form.labels.name}${name}`,
+          `${t.form.labels.email}${email}`,
+          `${t.form.labels.phone}${phone}`,
+          service ? `${t.form.labels.service}${service}` : `${t.form.labels.service} `,
+          `${t.form.labels.detailedOffer}${detailed}`,
           "",
-          "Nachricht:",
+          `${t.form.labels.message}`,
           message,
           "",
-          "Vielen Dank und freundliche Grüsse",
+          t.form.thankYou,
           name || "",
         ];
         const mailto = `mailto:info@suuberi-reinigung.ch?subject=${encodeURIComponent(
@@ -45,68 +46,64 @@ const ContactFormMailto = ({ services, defaultServiceTitle }: ContactFormMailtoP
         )}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
         window.location.href = mailto;
       }}
-      className="rounded-xl bg-white p-6 shadow-sm border border-black/5"
-      aria-label="Kontaktformular"
+      className="rounded-xl bg-white p-10 shadow-lg"
+      aria-label={t.form.formAriaLabel}
     >
-      <div className="grid grid-cols-1 gap-4">
+      <div className="grid grid-cols-1 gap-7">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium">
-            Name
+          <label htmlFor="name" className="block text-base font-semibold text-gray-900">
+            {t.form.name}
           </label>
           <input
             id="name"
             name="name"
             type="text"
             required
-            placeholder="Ihr Name"
-            className="mt-1 w-full rounded-md border border-black/10 px-3 py-2 outline-none focus:ring-2 focus:ring-[var(--color-secondary)]"
+            placeholder={t.form.namePlaceholder}
+            className="mt-2 w-full rounded-lg border border-gray-300 px-5 py-4 text-base text-gray-900 placeholder-gray-400 outline-none focus:border-gray-900 focus:ring-2 focus:ring-gray-900/20 transition"
             aria-required="true"
           />
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-7">
           <div>
-            <label htmlFor="email" className="block text-sm font-medium">
-              E-Mail
+            <label htmlFor="email" className="block text-base font-semibold text-gray-900">
+              {t.form.email}
             </label>
             <input
               id="email"
               name="email"
               type="email"
               required
-              placeholder="name@beispiel.ch"
-              className="mt-1 w-full rounded-md border border-black/10 px-3 py-2 outline-none focus:ring-2 focus:ring-[var(--color-secondary)]"
+              placeholder={t.form.emailPlaceholder}
+              className="mt-2 w-full rounded-lg border border-gray-300 px-5 py-4 text-base text-gray-900 placeholder-gray-400 outline-none focus:border-gray-900 focus:ring-2 focus:ring-gray-900/20 transition"
               aria-required="true"
             />
           </div>
           <div>
-            <label htmlFor="phone" className="block text-sm font-medium">
-              Telefonnummer
+            <label htmlFor="phone" className="block text-base font-semibold text-gray-900">
+              {t.form.phone}
             </label>
             <input
               id="phone"
               name="phone"
               type="tel"
-              placeholder="+41 78 234 66 99"
-              className="mt-1 w-full rounded-md border border-black/10 px-3 py-2 outline-none focus:ring-2 focus:ring-[var(--color-secondary)]"
+              placeholder={t.form.phonePlaceholder}
+              className="mt-2 w-full rounded-lg border border-gray-300 px-5 py-4 text-base text-gray-900 placeholder-gray-400 outline-none focus:border-gray-900 focus:ring-2 focus:ring-gray-900/20 transition"
             />
           </div>
         </div>
         <div>
-          <label htmlFor="service" className="block text-sm font-medium">
-            Dienstleistung
+          <label htmlFor="service" className="block text-base font-semibold text-gray-900">
+            {t.form.service}
           </label>
           <select
             id="service"
             name="service"
-            className="mt-1 w-full rounded-md border border-black/10 bg-white px-3 py-2 outline-none focus:ring-2 focus:ring-[var(--color-secondary)]"
-            defaultValue={
-              defaultServiceTitle && services.some((s) => s.title === defaultServiceTitle)
-                ? defaultServiceTitle
-                : ""
-            }
+            className="mt-2 w-full rounded-lg border border-gray-300 bg-white px-5 py-4 text-base text-gray-900 outline-none focus:border-gray-900 focus:ring-2 focus:ring-gray-900/20 transition"
+            defaultValue=""
           >
             <option value="" disabled>
-              Bitte wählen
+              {t.form.serviceSelect}
             </option>
             {services.map((s) => (
               <option key={s.title} value={s.title}>
@@ -116,35 +113,35 @@ const ContactFormMailto = ({ services, defaultServiceTitle }: ContactFormMailtoP
           </select>
         </div>
         <div>
-          <label htmlFor="message" className="block text-sm font-medium">
-            Nachricht
+          <label htmlFor="message" className="block text-base font-semibold text-gray-900">
+            {t.form.message}
           </label>
           <textarea
             id="message"
             name="message"
             rows={4}
             required
-            placeholder="Beschreiben Sie Ihr Anliegen..."
-            className="mt-1 w-full rounded-md border border-black/10 px-3 py-2 outline-none focus:ring-2 focus:ring-[var(--color-secondary)]"
+            placeholder={t.form.messagePlaceholder}
+            className="mt-2 w-full rounded-lg border border-gray-300 px-5 py-4 text-base text-gray-900 placeholder-gray-400 outline-none focus:border-gray-900 focus:ring-2 focus:ring-gray-900/20 transition"
             aria-required="true"
           />
         </div>
-        <label className="inline-flex items-center gap-2">
+        <label className="inline-flex items-center gap-3 cursor-pointer">
           <input
             id="detailed"
             name="detailed"
             type="checkbox"
-            className="h-4 w-4 rounded border-black/20 text-[var(--color-primary)] focus:ring-[var(--color-secondary)]"
-            aria-label="Detailliertes Angebot gewünscht"
+            className="h-5 w-5 rounded border-gray-300 text-gray-900 focus:ring-gray-900 focus:ring-2 transition"
+            aria-label={t.form.detailedOffer}
           />
-          <span className="text-sm">Detailliertes Angebot gewünscht</span>
+          <span className="text-base text-gray-700 font-medium">{t.form.detailedOffer}</span>
         </label>
         <button
           type="submit"
-          className="mt-2 inline-flex justify-center items-center gap-2 rounded-md bg-[var(--color-primary)] px-5 py-3 text-white font-medium hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-accent)]"
-          aria-label="Standard-E-Mail mit Anfrage öffnen"
+          className="mt-4 inline-flex justify-center items-center gap-2 rounded-lg bg-gray-900 px-10 py-5 text-lg text-white font-semibold hover:bg-gray-800 active:bg-gray-950 shadow-lg hover:shadow-xl transition-all focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
+          aria-label={t.form.submitAriaLabel}
         >
-          E-Mail mit Anfrage öffnen
+          {t.form.submitButton}
         </button>
       </div>
     </form>

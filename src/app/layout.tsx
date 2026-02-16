@@ -4,6 +4,8 @@ import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Analytics } from "@vercel/analytics/react";
+import { LocaleProviderWrapper } from "@/components/LocaleProviderWrapper";
+import { SkipLink } from "@/components/SkipLink";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -15,17 +17,17 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://suuberi-reinigung.ch"),
   title: {
     default:
-      "Suuberi Reinigung | Reinigung Basel, Bern, Zürich – Hauswartung & Endreinigung",
+      "Suuberi Reinigung | Reinigung Biel, Bern, Jura – Hauswartung & Endreinigung",
     template: "%s | Suuberi Reinigung",
   },
   description:
-    "Suuberi – professionelle Reinigung und Hauswartung in Basel, Biel, Solothurn, Bern und Zürich. Endreinigung, Unterhaltsreinigung, Industriereinigung, Fenster- & Fassadenreinigung.",
+    "Suuberi – professionelle Reinigung und Hauswartung in Biel, Bern und Jura. Endreinigung, Unterhaltsreinigung, Industriereinigung, Fenster- & Fassadenreinigung.",
   keywords: [
-    "Reinigung Basel",
+    "Reinigung Biel",
     "Reinigung Bern",
-    "Reinigung Zürich",
+    "Reinigung Jura",
     "Hauswartung Bern",
-    "Endreinigung Zürich",
+    "Endreinigung Biel",
     "Bauendreinigung",
     "Unterhaltsreinigung",
     "Industriereinigung",
@@ -34,7 +36,14 @@ export const metadata: Metadata = {
     "Spezialreinigung",
     "Gartenpflege",
   ],
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/",
+    languages: {
+      de: "https://suuberi-reinigung.ch",
+      fr: "https://suuberi-reinigung.ch/fr",
+      "x-default": "https://suuberi-reinigung.ch",
+    },
+  },
   robots: { index: true, follow: true },
   openGraph: {
     type: "website",
@@ -42,7 +51,7 @@ export const metadata: Metadata = {
     title:
       "Suuberi Reinigung – Mehr als sauber. Reinigung und Hauswartung in der Schweiz",
     description:
-      "Professionelle Reinigung in Basel, Biel, Solothurn, Bern und Zürich. Endreinigung, Unterhalt, Industrie, Fenster & Fassaden.",
+      "Professionelle Reinigung in Biel, Bern und Jura. Endreinigung, Unterhalt, Industrie, Fenster & Fassaden.",
     siteName: "Suuberi Reinigung",
     locale: "de_CH",
     images: [
@@ -59,7 +68,7 @@ export const metadata: Metadata = {
     title:
       "Suuberi Reinigung – Mehr als sauber. Reinigung und Hauswartung in der Schweiz",
     description:
-      "Professionelle Reinigung in Basel, Biel, Solothurn, Bern und Zürich.",
+      "Professionelle Reinigung in Biel, Bern und Jura.",
     images: [
       {
         url: "/img/suuberi-logo-schwarz.png",
@@ -83,34 +92,80 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',
-              '@type': 'LocalBusiness',
+              '@type': 'CleaningService',
               name: 'Suuberi Reinigung',
               url: 'https://suuberi-reinigung.ch',
+              logo: 'https://suuberi-reinigung.ch/img/new.png',
+              image: 'https://suuberi-reinigung.ch/img/suuberi-logo-schwarz.png',
+              description: 'Professionelle Reinigung und Hauswartung in Biel, Bern und Jura. Endreinigung, Unterhaltsreinigung, Industriereinigung, Fenster- & Fassadenreinigung.',
+              telephone: '+41 78 234 66 99',
+              email: 'info@suuberi-reinigung.ch',
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'Biel/Bienne',
+                addressRegion: 'BE',
+                addressCountry: 'CH',
+              },
+              geo: {
+                '@type': 'GeoCoordinates',
+                latitude: 47.1368,
+                longitude: 7.2467,
+              },
               areaServed: [
-                'Basel',
-                'Biel',
-                'Solothurn',
-                'Bern',
-                'Zürich',
+                { '@type': 'City', name: 'Biel/Bienne' },
+                { '@type': 'City', name: 'Bern' },
+                { '@type': 'AdministrativeArea', name: 'Jura' },
               ],
-              description:
-                'Professionelle Reinigungs- und Hauswartungsdienste in der Schweiz. Endreinigung, Unterhaltsreinigung, Industriereinigung, Fenster- & Fassadenreinigung.',
+              priceRange: 'CHF 41 – CHF 2075',
+              openingHoursSpecification: [
+                {
+                  '@type': 'OpeningHoursSpecification',
+                  dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+                  opens: '07:00',
+                  closes: '19:00',
+                },
+                {
+                  '@type': 'OpeningHoursSpecification',
+                  dayOfWeek: 'Saturday',
+                  opens: '08:00',
+                  closes: '16:00',
+                },
+              ],
+              aggregateRating: {
+                '@type': 'AggregateRating',
+                ratingValue: '5.0',
+                reviewCount: '3',
+                bestRating: '5',
+              },
+              hasOfferCatalog: {
+                '@type': 'OfferCatalog',
+                name: 'Reinigungsservices',
+                itemListElement: [
+                  { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Unterhaltsreinigung' } },
+                  { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Industriereinigung' } },
+                  { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Endreinigung / Umzug' } },
+                  { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Bauendreinigung' } },
+                  { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Fenster-, Fassaden- & Storenreinigung' } },
+                  { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Spezialreinigungen' } },
+                  { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Gartenpflege & Multiservices' } },
+                ],
+              },
+              sameAs: [
+                'https://wa.me/41782346699',
+              ],
             }),
           }}
         />
       </head>
-      <body className={`${inter.variable} antialiased`}>
-        <a
-          href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded-md focus:bg-[var(--color-primary)] focus:px-3 focus:py-2 focus:text-white"
-        >
-          Zum Inhalt springen
-        </a>
-        <Navbar />
-        <div className="pt-16" id="main">
-          {children}
-        </div>
-        <Footer />
+      <body className={inter.variable}>
+        <LocaleProviderWrapper>
+          <SkipLink />
+          <Navbar />
+          <div className="pt-20 relative" id="main" role="main">
+            {children}
+          </div>
+          <Footer />
+        </LocaleProviderWrapper>
         <Analytics />
       </body>
     </html>

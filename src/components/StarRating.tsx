@@ -9,7 +9,7 @@ type StarRatingProps = {
 const StarRating = ({ value, size = 18, ariaLabel }: StarRatingProps) => {
   const rounded = Math.round(value);
   return (
-    <div className="flex" aria-label={ariaLabel}>
+    <div className="flex" role="img" aria-label={ariaLabel}>
       {[0, 1, 2, 3, 4].map((i) => (
         <svg
           key={i}

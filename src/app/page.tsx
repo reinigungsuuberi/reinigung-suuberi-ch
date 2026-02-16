@@ -1,81 +1,21 @@
-"use client";
-
-import { useMemo, useRef } from "react";
-import Hero from "../components/Hero";
-import AboutSection from "../components/AboutSection";
-import ServicesSection from "../components/ServicesSection";
-import WhyUsSection from "../components/WhyUsSection";
-import ReviewsSection from "../components/ReviewsSection";
-import StepsSection from "../components/StepsSection";
-import ContactSection from "../components/ContactSection";
+import type { Metadata } from "next";
+import { HomePage } from "../components/HomePage";
 import { getAllServices } from "../data/services";
 
+export const metadata: Metadata = {
+  title: "Suuberi Reinigung | Startseite – Professionelle Reinigung in Biel, Bern, Jura",
+  description: "Professionelle Reinigung, Hauswartung und Spezialreinigung in Biel, Bern und Jura. Endreinigung, Fensterreinigung, Fassadenreinigung und mehr.",
+  openGraph: {
+    title: "Suuberi Reinigung – Startseite",
+    description: "Professionelle Reinigung in Biel, Bern und Jura. Schnell, zuverlässig, nachhaltig.",
+  },
+};
+
 const services = getAllServices();
+const locations = ["Biel", "Bern", "Jura"];
 
-type Review = {
-  name: string;
-  city: string;
-  rating: number; // 1-5
-  text: string;
-};
-
-const reviews: Review[] = [
-  {
-    name: "Anna M.",
-    city: "Basel",
-    rating: 5,
-    text: "Sehr zuverlässig und gründlich – unsere Büros waren selten so sauber.",
-  },
-  {
-    name: "Lukas M.",
-    city: "Bern",
-    rating: 5,
-    text: "Schnelle Terminvergabe und top Ergebnis bei der Endreinigung.",
-  },
-  {
-    name: "Sara M.",
-    city: "Zürich",
-    rating: 4,
-    text: "Freundliches Team, nachhaltige Produkte und faire Preise.",
-  },
-];
-
-const Home = () => {
-  const formRef = useRef<HTMLFormElement | null>(null);
-
-  const handleScrollToForm = () => {
-    const formElement = formRef.current;
-    if (!formElement) return;
-    formElement.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
-
-  const locations = useMemo(
-    () => ["Basel", "Biel", "Solothurn", "Bern", "Zürich"],
-    []
-  );
-
-
-  return (
-    <main className="font-sans">
-      <Hero onCtaClick={handleScrollToForm} />
-
-      <AboutSection />
-
-      <ServicesSection services={services} />
-
-      <WhyUsSection />
-
-      {/* <ReviewsSection reviews={reviews} /> */}
-
-      <StepsSection />
-
-      <ContactSection locations={locations} services={services.map((s) => ({ title: s.title }))} />
-
-  
-    </main>
-  );
-};
-
-export default Home;
+export default function Home() {
+  return <HomePage services={services} locations={locations} />;
+}
 
 
