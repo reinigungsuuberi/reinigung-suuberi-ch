@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, ReactNode } from "react";
+import { useEffect, useRef } from "react";
 
 export const useParallax = (speed: number = 0.5) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -8,7 +8,6 @@ export const useParallax = (speed: number = 0.5) => {
   useEffect(() => {
     const handleScroll = () => {
       if (!ref.current) return;
-      const rect = ref.current.getBoundingClientRect();
       const scrolled = window.scrollY;
       const elementTop = ref.current.offsetTop;
       const distance = scrolled - (elementTop - window.innerHeight);
@@ -39,13 +38,14 @@ export const useScrollReveal = <T extends HTMLElement = HTMLDivElement>() => {
       { threshold: 0.1 }
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
+    const element = ref.current;
+    if (element) {
+      observer.observe(element);
     }
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
+      if (element) {
+        observer.unobserve(element);
       }
     };
   }, []);

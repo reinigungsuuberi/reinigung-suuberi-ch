@@ -28,7 +28,7 @@ const ImprintPage = () => {
       </div>
       <h2 className="mt-8 text-xl font-semibold">Clause de non-responsabilité</h2>
       <p className="mt-2 text-[var(--color-muted)]">
-        Tous les renseignements sont fournis sans garantie. Malgré un contrôle minutieux du contenu, nous n'acceptons aucune responsabilité pour le contenu des liens externes.
+        Tous les renseignements sont fournis sans garantie. Malgré un contrôle minutieux du contenu, nous n&apos;acceptons aucune responsabilité pour le contenu des liens externes.
       </p>
     </main>
   );

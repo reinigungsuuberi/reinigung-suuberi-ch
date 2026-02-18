@@ -12,7 +12,7 @@ type ContactSectionProps = {
 };
 
 const ContactSection = forwardRef<HTMLDivElement, ContactSectionProps>(
-  ({ locations, services, formRef }, ref) => {
+  ({ locations, services, formRef }, _ref) => {
     const { t } = useLocale();
     const contentRef = useScrollReveal();
 

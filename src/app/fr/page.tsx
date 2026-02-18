@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { HomePage } from "@/components/HomePage";
 import { getAllServices } from "@/data/services";
 

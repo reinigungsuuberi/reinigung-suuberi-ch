@@ -77,7 +77,7 @@ const DynamicBackground = () => {
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       // Update and draw spheres
-      spheres.forEach((sphere, index) => {
+      spheres.forEach((sphere) => {
         // Update position
         sphere.x += sphere.vx;
         sphere.y += sphere.vy;

@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
-import { RiPhoneLine, RiWhatsappLine, RiMailLine, RiCloseLine } from "react-icons/ri";
+import { RiCloseLine } from "react-icons/ri";
 import { useLocale } from "@/lib/LocaleProvider";
 
 type NavItem = { label: string; href: string; targetId: string };
@@ -72,11 +72,9 @@ const Navbar = () => {
   const router = useRouter();
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [currentTheme, setCurrentTheme] = useState<SectionTheme>(themes.light);
 
   const baseUrl = locale === "fr" ? "/fr" : "";
-  const servicesPath = locale === "fr" ? "/fr/services" : "/dienstleistungen";
 
   const navItems: NavItem[] = [
     { label: t.nav.services, href: `${baseUrl}/#dienstleistungen`, targetId: "dienstleistungen" },
@@ -130,7 +128,6 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
       detectTheme();
     };
 
@@ -235,7 +232,7 @@ const Navbar = () => {
     
     router.push(newPath);
     setIsMenuOpen(false);
-  }, [locale, pathname, router]);
+  }, [locale, pathname, router, routeTranslations]);
 
   return (
     <>
