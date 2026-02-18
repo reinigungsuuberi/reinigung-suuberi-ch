@@ -13,7 +13,7 @@ const PrivacyPage = () => {
         Politique de confidentialité
       </h1>
       <p className="mt-4 text-[var(--foreground)]">
-        Nous prenons la protection de vos données au sérieux. Les données personnelles sont utilisées exclusivement pour traiter votre demande et exécuter le contrat. Une transmission à des tiers n'a lieu que si cela est prévu par la loi ou si vous en avez donné votre consentement.
+        Nous prenons la protection de vos données au sérieux. Les données personnelles sont utilisées exclusivement pour traiter votre demande et exécuter le contrat. Une transmission à des tiers n&apos;a lieu que si cela est prévu par la loi ou si vous en avez donné votre consentement.
       </p>
       <h2 className="mt-8 text-xl font-semibold">Contact</h2>
       <p className="mt-2 text-[var(--color-muted)]">

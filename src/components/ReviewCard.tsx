@@ -22,7 +22,7 @@ const ReviewCard = ({ name, city, rating, text, className }: ReviewCardProps) =>
         <div className="font-semibold text-gray-900 text-lg group-hover:text-gray-800 transition-colors">{name} · {city}</div>
         <StarRating value={rating} ariaLabel={`${rating} ${t.sections.reviewsRating}`} />
       </div>
-      <p className="text-gray-700 leading-relaxed text-lg group-hover:text-gray-600 transition-colors">"{text}"</p>
+      <p className="text-gray-700 leading-relaxed text-lg group-hover:text-gray-600 transition-colors">&ldquo;{text}&rdquo;</p>
     </article>
   );
 };

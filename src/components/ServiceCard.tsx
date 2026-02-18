@@ -15,7 +15,7 @@ type ServiceCardProps = {
   className?: string;
 };
 
-const ServiceCard = ({ icon, iconType, title, description, iconAlt, href, className }: ServiceCardProps) => {
+const ServiceCard = ({ icon, iconType, title, description, href, className }: ServiceCardProps) => {
   const { t } = useLocale();
   const ref = useScrollReveal();
   

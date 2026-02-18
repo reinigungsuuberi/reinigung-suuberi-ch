@@ -63,7 +63,7 @@ const ServicesPage = () => {
             <span className="text-gray-400">réinventé.</span>
           </h1>
           <p className="mt-8 text-xl md:text-2xl text-gray-600 leading-relaxed max-w-2xl">
-            Des solutions de nettoyage professionnelles, pensées pour s'adapter à chaque espace, 
+            Des solutions de nettoyage professionnelles, pensées pour s&apos;adapter à chaque espace, 
             chaque besoin, chaque exigence. Simplement.
           </p>
         </div>
@@ -149,7 +149,7 @@ const ServicesPage = () => {
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="text-center md:text-left relative z-10">
               <p className="text-gray-400 text-sm tracking-widest uppercase mb-6">
-                Zones d'intervention
+                Zones d&apos;intervention
               </p>
               <p className="text-3xl md:text-4xl lg:text-5xl text-gray-900 font-light">
                 Biel/Bienne · Berne · Jura
