@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     "Nettoyage de fin de bail Bienne",
     "Nettoyage de fin de construction",
     "Nettoyage régulier",
-    "Nettoyage industriel",
+    "Location de véhicules",
     "Nettoyage de vitrages",
     "Nettoyage de façades",
     "Nettoyage spécialisé",

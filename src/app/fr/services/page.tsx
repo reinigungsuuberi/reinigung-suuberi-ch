@@ -15,10 +15,10 @@ const serviceFrenchData: Record<string, {
     tagline: "La constance au service de la propreté",
     description: "Un environnement propre, chaque jour. Nous intervenons selon votre rythme – hebdomadaire, bimensuel ou mensuel – avec une qualité constante et un interlocuteur dédié."
   },
-  "industriereinigung": {
-    title: "Nettoyage industriel",
-    tagline: "La puissance au service de l'industrie",
-    description: "Des halls de production aux entrepôts, nous maîtrisons les défis du nettoyage industriel. Équipements professionnels, normes de sécurité respectées, résultats impeccables."
+  "fahzeugevermietung": {
+    title: "Location de véhicules",
+    tagline: "La mobilité à votre service",
+    description: "Des petites voitures aux utilitaires – nous mettons à disposition une flotte adaptée à vos besoins. Professionnel, fiable, économique."
   },
   "endreinigung-umzug": {
     title: "Nettoyage de fin de bail",

@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: "%s | Suuberi Reinigung",
   },
   description:
-    "Suuberi – professionelle Reinigung und Hauswartung in Biel, Bern und Jura. Endreinigung, Unterhaltsreinigung, Industriereinigung, Fenster- & Fassadenreinigung.",
+    "Suuberi – professionelle Reinigung und Hauswartung in Biel, Bern und Jura. Endreinigung, Unterhaltsreinigung, Fahzeugevermietung, Fenster- & Fassadenreinigung.",
   keywords: [
     "Reinigung Biel",
     "Reinigung Bern",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     "Endreinigung Biel",
     "Bauendreinigung",
     "Unterhaltsreinigung",
-    "Industriereinigung",
+    "Fahzeugevermietung",
     "Fensterreinigung",
     "Fassadenreinigung",
     "Spezialreinigung",
@@ -97,7 +97,7 @@ export default function RootLayout({
               url: 'https://suuberi-reinigung.ch',
               logo: 'https://suuberi-reinigung.ch/img/new.png',
               image: 'https://suuberi-reinigung.ch/img/suuberi-logo-schwarz.png',
-              description: 'Professionelle Reinigung und Hauswartung in Biel, Bern und Jura. Endreinigung, Unterhaltsreinigung, Industriereinigung, Fenster- & Fassadenreinigung.',
+              description: 'Professionelle Reinigung und Hauswartung in Biel, Bern und Jura. Endreinigung, Unterhaltsreinigung, Fahzeugevermietung, Fenster- & Fassadenreinigung.',
               telephone: '+41 78 234 66 99',
               email: 'info@suuberi-reinigung.ch',
               address: {
@@ -142,7 +142,7 @@ export default function RootLayout({
                 name: 'Reinigungsservices',
                 itemListElement: [
                   { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Unterhaltsreinigung' } },
-                  { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Industriereinigung' } },
+                  { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Fahzeugevermietung' } },
                   { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Endreinigung / Umzug' } },
                   { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Bauendreinigung' } },
                   { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Fenster-, Fassaden- & Storenreinigung' } },

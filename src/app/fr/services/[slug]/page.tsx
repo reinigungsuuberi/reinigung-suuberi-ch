@@ -20,15 +20,15 @@ const serviceFrenchData: Record<string, {
       "Checklists détaillées pour chaque nettoyage"
     ]
   },
-  "industriereinigung": {
-    title: "Nettoyage industriel",
-    tagline: "La puissance au service de l'industrie",
-    intro: "Des halls de production aux entrepôts, nous maîtrisons les défis du nettoyage industriel. Équipements professionnels, normes de sécurité respectées, résultats impeccables.",
+  "fahzeugevermietung": {
+    title: "Location de véhicules",
+    tagline: "La mobilité à votre service",
+    intro: "Des petites voitures aux utilitaires – nous mettons à disposition une flotte adaptée à vos besoins. Professionnel, fiable, économique.",
     highlights: [
-      "Respect de toutes les normes de sécurité",
-      "Équipements industriels professionnels",
-      "Expérience dans différents secteurs",
-      "Horaires flexibles (aussi de nuit)"
+      "Large choix de véhicules",
+      "Prix compétitifs",
+      "Réservation rapide et facile",
+      "Service client professionnel"
     ]
   },
   "endreinigung-umzug": {

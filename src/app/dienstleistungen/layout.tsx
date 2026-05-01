@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Dienstleistungen | Suuberi Reinigung – Unser Angebot",
-  description: "Entdecken Sie unser Angebot: Unterhaltsreinigung, Endreinigung, Industriereinigung, Fensterreinigung und Spezialreinigung in Biel, Bern und Jura.",
+  description: "Entdecken Sie unser Angebot: Unterhaltsreinigung, Endreinigung, Fahzeugevermietung, Fensterreinigung und Spezialreinigung in Biel, Bern und Jura.",
   alternates: {
     canonical: "/dienstleistungen",
     languages: {
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Dienstleistungen | Suuberi Reinigung",
-    description: "Unterhaltsreinigung, Endreinigung, Industriereinigung, Fenster- und Fassadenreinigung sowie Spezialreinigung.",
+    description: "Unterhaltsreinigung, Endreinigung, Fahzeugevermietung, Fenster- und Fassadenreinigung sowie Spezialreinigung.",
   },
 };
 

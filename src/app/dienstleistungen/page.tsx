@@ -13,9 +13,9 @@ const serviceGermanData: Record<string, {
     tagline: "Beständigkeit für Ihre Sauberkeit",
     description: "Eine saubere Umgebung, jeden Tag. Wir kommen nach Ihrem Rhythmus – wöchentlich, zweiwöchentlich oder monatlich – mit konstanter Qualität und einem festen Ansprechpartner."
   },
-  "industriereinigung": {
-    tagline: "Kraft für die Industrie",
-    description: "Von Produktionshallen bis Lagerhäuser – wir meistern die Herausforderungen der industriellen Reinigung. Professionelle Ausrüstung, Sicherheitsstandards eingehalten, makellose Ergebnisse."
+  "fahzeugevermietung": {
+    tagline: "Mobilität für jeden Bedarf",
+    description: "Von Kleinwagen bis Nutzfahrzeugen – wir stellen die richtige Flotte für Ihre Anforderungen bereit. Professionell, zuverlässig, preiswert."
   },
   "endreinigung-umzug": {
     tagline: "Beruhigt ausziehen",

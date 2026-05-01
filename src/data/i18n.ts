@@ -114,9 +114,9 @@ export const i18n = {
         title: "Unterhaltsreinigung",
         shortDescription: "Regelmässige Reinigung für Büros, Praxen und Liegenschaften – zuverlässig und planbar."
       },
-      "industriereinigung": {
-        title: "Industriereinigung",
-        shortDescription: "Professionelle Reinigung für Produktionsstätten, Lager und Werkhallen."
+      "fahzeugevermietung": {
+        title: "Fahzeugevermietung",
+        shortDescription: "Professionelle Fahzeugvermietung für Geschäfts- und Privatbedarf."
       },
       "endreinigung-umzug": {
         title: "Endreinigung (Umzug)",
@@ -253,9 +253,9 @@ export const i18n = {
         title: "Nettoyage régulier",
         shortDescription: "Nettoyage régulier pour les bureaux, les cabinets et les propriétés – fiable et planifiable."
       },
-      "industriereinigung": {
-        title: "Nettoyage industriel",
-        shortDescription: "Nettoyage professionnel pour les sites de production, les entrepôts et les halls."
+      "fahzeugevermietung": {
+        title: "Location de véhicules",
+        shortDescription: "Location professionnelle de véhicules pour les besoins commerciaux et privés."
       },
       "endreinigung-umzug": {
         title: "Nettoyage de fin de bail",

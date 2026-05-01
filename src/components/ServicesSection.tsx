@@ -8,7 +8,7 @@ import { useLocale } from "@/lib/LocaleProvider";
 // Image mapping for each service
 const serviceImages: Record<string, string> = {
   "unterhaltsreinigung": "/img/regulier.jpg",
-  "industriereinigung": "/img/industriel.jpg",
+  "fahzeugevermietung": "/img/industriel.jpg",
   "endreinigung-umzug": "/img/fin_de_bail.jpg",
   "bauendreinigung": "/img/1.jpg",
   "fenster-fassaden-storenreinigung": "/img/vitres.jpg",

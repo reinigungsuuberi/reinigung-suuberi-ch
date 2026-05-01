@@ -54,25 +54,25 @@ export const servicesData: ServiceDetail[] = [
     ],
   },
   {
-    slug: "industriereinigung",
-    title: "Industriereinigung",
+    slug: "fahzeugevermietung",
+    title: "Fahzeugevermietung",
     shortDescription:
-      "Professionelle Reinigung für Produktionsstätten, Lager und Werkhallen.",
-    icon: "🏭",
+      "Professionelle Fahzeugvermietung für Geschäfts- und Privatbedarf.",
+    icon: "🚗",
     iconType: "factory",
-    alt: "Icon Industriereinigung",
+    alt: "Icon Fahzeugevermietung",
     intro:
-      "Spezialreinigung für industrielle Umgebungen – sicher, effizient und mit geeigneten Verfahren für Maschinen, Böden und Flächen.",
+      "Flexible Fahrzeugvermietung für Ihre Bedürfnisse – wirtschaftlich, zuverlässig und mit einer Flotte für jeden Einsatz.",
     highlights: [
-      "Sicherheits- und Branchenstandards",
-      "Maschinen-, Hallen- und Bodenreinigung",
-      "Einsatz professioneller Geräte",
+      "Große Flottenauswahl",
+      "Wettbewerbsfähige Preise",
+      "Schnelle und einfache Buchung",
     ],
     priceSections: [
       {
         title: "Preisgestaltung",
         note:
-          "Industriereinigung variiert stark nach Fläche, Verschmutzungsgrad und Maschinenpark – wir erstellen eine Offerte nach Besichtigung.",
+          "Fahzeugevermietung variiert je nach Fahrzeugtyp und Vermietungsdauer – wir erstellen eine Offerte nach Ihren Anforderungen.",
       },
     ],
   },
