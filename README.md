@@ -101,6 +101,7 @@ This project follows a modern, clean design approach focused on accessibility an
 3. **Baureinigung** (Construction Cleaning) - Post-construction cleanup
 4. **Büroreinigung** (Office Cleaning) - Commercial office cleaning
 5. **Privatreinigung** (Private Cleaning) - Residential cleaning
+6. **Vermietung Lieferwagen/Transporter** (Transport services 24/7)
 
 ### Internationalization (i18n)
 
